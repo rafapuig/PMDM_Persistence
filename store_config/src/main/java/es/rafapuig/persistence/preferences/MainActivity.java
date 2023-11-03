@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
     public static final float DEFAULT_OPACITY = 1.0f;
     public static final int DEFAULT_BACKCOLOR = Color.WHITE;
 
-    int layoutBackgroundColor;
-    float imageTransparency;
+    int layoutBackgroundColor = DEFAULT_BACKCOLOR;
+    float imageTransparency = DEFAULT_OPACITY;
 
     ImageView image;
 
@@ -30,10 +30,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        SharedPreferences prefs = this.getPreferences(MODE_PRIVATE);
-        layoutBackgroundColor = prefs.getInt("background_color", DEFAULT_BACKCOLOR);
-        imageTransparency = prefs.getFloat("image_transparency", DEFAULT_OPACITY);
-
+        loadPreferences();
         updateView();
     }
 
@@ -41,6 +38,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         storePreferences();
         super.onPause();
+    }
+
+    void loadPreferences() {
+        SharedPreferences prefs = this.getPreferences(MODE_PRIVATE);
+        layoutBackgroundColor = prefs.getInt("background_color", DEFAULT_BACKCOLOR);
+        imageTransparency = prefs.getFloat("image_transparency", DEFAULT_OPACITY);
     }
 
     void storePreferences() {
