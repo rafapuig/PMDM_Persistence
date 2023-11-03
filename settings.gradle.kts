@@ -14,5 +14,5 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Persistence"
-include(":app")
+include(":store_config")
 include(":preferences_example")

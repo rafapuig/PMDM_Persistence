@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "es.rafapuig.persistence"
-    compileSdk = 33
+    namespace = "es.rafapuig.persistence.preferences"
+    compileSdk = 34
 
     defaultConfig {
-        applicationId = "es.rafapuig.persistence"
+        applicationId = "es.rafapuig.persistence.store_config"
         minSdk = 30
         targetSdk = 33
         versionCode = 1
