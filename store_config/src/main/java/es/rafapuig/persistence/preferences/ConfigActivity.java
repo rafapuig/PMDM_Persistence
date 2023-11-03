@@ -55,18 +55,6 @@ public class ConfigActivity extends AppCompatActivity {
         }
     }
 
-    /*private <T> int indexOf(T[] array, T item) {
-        int index;
-        for(index = 0; index< array.length; index++) {
-            if(array[index].equals(item)) break;
-        }
-        /*int index = 0;
-        while (index < array.length && !array[index].equals(item)) {
-            index++;
-        };
-        return index < array.length ? index : -1;
-    }*/
-
     private <T> int indexOf(T[] array, T item) {
 
         int position = IntStream.range(0,array.length)
