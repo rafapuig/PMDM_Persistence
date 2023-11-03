@@ -93,5 +93,4 @@ public class MainActivity extends AppCompatActivity {
             updateView();
         }
     }
-
 }
