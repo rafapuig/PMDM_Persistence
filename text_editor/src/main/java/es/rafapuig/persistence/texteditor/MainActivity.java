@@ -33,104 +33,54 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        loadEditTextContentFromFile(); //TODO: call method to load text from file
+        //TODO: call method to load text from file in the EditText
     }
 
 
     @Override
     protected void onPause() {
-        saveEditTextContentToFile(); //TODO: call method to save text to file
+        //TODO: call method to save text to file from the EditText
         super.onPause();
     }
 
     private void loadEditTextContentFromFile() {
-        String content = loadTextFromFile();
-        restoreEditTextContent(content);
+        //TODO: load text content from file
+        //TODO: restore the EditText with that content
     }
 
     private void saveEditTextContentToFile() {
-        String content = getContentToStore();
-        saveTextToFile(content);
+        //TODO: get text content from EditText
+        //TODO: save the text to a file
     }
 
     private void restoreEditTextContent(String text) {
-        EditText editText = findViewById(R.id.editTextTextMultiLine);
-        editText.setText(text);
+        //TODO: set the text from parameter to the EditText
     }
 
     private String getContentToStore() {
-        EditText editText = this.findViewById(R.id.editTextTextMultiLine);
-        String content = editText.getText().toString();
-        return content;
+        //TODO: return the text content of the EditText
+
     }
 
 
     private String loadTextFromFile() {
-        try {
-            return tryLoadTextFromFile();
-        } catch (FileNotFoundException e) {
-            Toast.makeText(this, "File not found!!", Toast.LENGTH_LONG).show();
-        } catch (IOException e) {
-            Toast.makeText(this, "There's was an I/O error: " + e.getMessage(), Toast.LENGTH_LONG).show();
-        }
-        return null;
+        //TODO: try lo load the text from file and catch the exceptions it may produce
     }
 
 
     private void saveTextToFile(String text) {
-        try {
-            trySaveTextToFile(text);
-        } catch (IOException e) {
-            Toast.makeText(this, "There's was an I/O error" + e.getMessage(), Toast.LENGTH_LONG).show();
-        }
+        //TODO: try to save the text to a file and catch the exceptions it may produce
     }
 
 
     private String tryLoadTextFromFile() throws FileNotFoundException, IOException {
-
-        FileInputStream fis = this.openFileInput(FILENAME); //byte stream from file
-
-        InputStreamReader isr = new InputStreamReader(fis); // from bytes to chars
-
-        BufferedReader br = new BufferedReader(isr); // optimizes reading with a buffer
-
-        //Use br.readLine() -> String to read the file contents line by line
-
-        StringBuilder sb = new StringBuilder();
-
-        String line;
-        while ((line = br.readLine()) != null) {
-            sb.append(line);
-            sb.append(System.lineSeparator());
-        }
-
-        //Close de input streams
-        br.close();
-        isr.close();
-        fis.close();
-
-        return sb.toString();
+        //TODO: read the contents of the file, close the streams and return the text read
     }
 
 
     private void trySaveTextToFile(String text) throws IOException {
+        //TODO: save the text to the file and close the streams
 
-        //Open a file for writing, it clear all contents that were there before
-        FileOutputStream fos = this.openFileOutput(FILENAME, Context.MODE_PRIVATE);
-
-        PrintWriter pw = new PrintWriter(fos); //from byte stream to a buffered char stream
-
-        //Use PrintWriter methods as with System.out
-
-        String[] lines = text.split(System.lineSeparator());
-
-        for (String line : lines) {
-            pw.println(line);
-        }
-
-        //Close the  output streams
-        pw.close();
-        fos.close();
     }
 
 }
