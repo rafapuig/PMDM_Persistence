@@ -39,45 +39,37 @@ public class RegistersActivity extends AppCompatActivity {
         super.onResume();
 
         // TODO: call a method to load People's data stored in the file
-        loadPeopleData();
+
 
         // TODO: call a method to point to the first person in the collection
-        initPeopleRegisterIndex();
+
 
         // TODO: Call a method to show the current Person in the UI
-        showCurrentPersonData();
+
     }
 
 
     Person getPersonFromIndex(int index) {
         // TODO: return a reference to the person located in the provided index, if index is out of bounds return null
-        try {
-            return people.get(index);
-        } catch (IndexOutOfBoundsException ex) {
-            return null;
-        }
+
     }
 
 
     void addPerson(Person person) {
         // TODO: Add the element Person to de Collection
-        //people = Arrays.copyOf(people, people.length + 1);
-        //people[people.length - 1] = person;
-        people.add(person);
+
     }
 
 
     void initPeopleRegisterIndex() {
         // TODO: Point to the first person in the collection
-        if (!people.isEmpty()) currentPersonIndex = 0;
-        else currentPersonIndex = -1;
+
     }
 
 
     void processRegisterData(String fullName, int age, boolean isWorking) {
         // TODO: Create a new Person with the method parameters and add to the data structure
-        Person person = new Person(fullName, age, isWorking);
-        addPerson(person);
+
     }
 
     private void loadPeopleData() {
@@ -89,26 +81,13 @@ public class RegistersActivity extends AppCompatActivity {
         try {
             // TODO: read from file each register, get the fields that make up a Person object and process the data
 
-            fis = getFileInputStream(MainActivity.FILENAME);
-            bis = new BufferedInputStream(fis);
-            dis = new DataInputStream(bis);
 
-            while(true) {
-
-                String fullName = dis.readUTF();
-                int age = dis.readInt();
-                boolean isWorking = dis.readBoolean();
-
-                processRegisterData(fullName, age, isWorking);
-            }
 
         } catch (EOFException e) //We have ended the reading of data in the file
         {
             try {
                 // TODO: close all input streams!
-                dis.close();
-                bis.close();
-                fis.close();
+
 
             } catch (IOException ioe)
             {
@@ -165,12 +144,6 @@ public class RegistersActivity extends AppCompatActivity {
 
     void showCurrentPersonData() {
         // TODO: Show in the UI data form the current array index pointer Person by currentPersonIndex
-        Person person = getPersonFromIndex(currentPersonIndex);
 
-        if (person != null) {
-            binding.fullNameRegisterTextView.setText(person.getFullName());
-            binding.ageRegisterTextView.setText(Integer.toString(person.getAge()));
-            binding.isWorkingRegisterTextView.setText(person.isWorking() ? "YES" : "NO");
-        }
     }
 }
