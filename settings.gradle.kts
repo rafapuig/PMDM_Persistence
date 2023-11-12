@@ -17,3 +17,4 @@ rootProject.name = "Persistence"
 include(":store_config")
 include(":preferences_example")
 include(":text_editor")
+include(":agenda_with_files")
