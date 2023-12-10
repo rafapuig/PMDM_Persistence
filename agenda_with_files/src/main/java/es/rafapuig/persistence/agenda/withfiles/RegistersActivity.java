@@ -93,12 +93,16 @@ public class RegistersActivity extends AppCompatActivity {
             bis = new BufferedInputStream(fis);
             dis = new DataInputStream(bis);
 
+            //We read in an infinite loop because eventually the reading will throw an EOFException
+            //when we have exhausted all the bytes of the input stream
             while(true) {
-
+                //We read the 3 field that make up a register in the same order as the were saved
+                //in the file, if not, we will misinterpret the byte info
                 String fullName = dis.readUTF();
                 int age = dis.readInt();
                 boolean isWorking = dis.readBoolean();
 
+                //Do something with the read data
                 processRegisterData(fullName, age, isWorking);
             }
 

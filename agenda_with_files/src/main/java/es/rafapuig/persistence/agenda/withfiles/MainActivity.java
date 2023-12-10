@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     boolean validateNameField(String fullName) {
-        if(fullName == null || fullName.isEmpty()) {
+        if (fullName == null || fullName.isEmpty()) {
             showError("Full name cannot be empty");
             return false;
         }
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     boolean validateAgeField(String age) {
-        if(age == null || age.isEmpty()) {
+        if (age == null || age.isEmpty()) {
             showError("Age cannot be empty");
             return false;
         } else {
@@ -108,16 +108,16 @@ public class MainActivity extends AppCompatActivity {
         // Get the register info
 
         String fullName = binding.fullNameEditText.getText().toString();
-        if(!validateNameField(fullName)) return;
+        if (!validateNameField(fullName)) return;
 
         String ageFieldContent = binding.ageEditText.getText().toString();
-        if(!validateAgeField(ageFieldContent)) return;
+        if (!validateAgeField(ageFieldContent)) return;
         int age = Integer.parseInt(ageFieldContent);
 
         boolean isWorking = binding.workingCheckbox.isChecked();
 
         //Write data to file
-        if(writeDataToFile(fullName, age, isWorking)) {
+        if (writeDataToFile(fullName, age, isWorking)) {
             clearUI();
         } else {
             showError("There was an error writing data!");
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
             tryToWriteDataToFile(fullName, age, isWorking);
             return true;
         } catch (IOException e) {
-            Log.i("","There was an error writing to the file!" + e.getMessage());
+            Log.i("", "There was an error writing to the file!" + e.getMessage());
         }
         return false;
     }
@@ -142,6 +142,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     void tryToWriteDataToFile(String fullName, int age, boolean isWorking) throws IOException {
+
         FileOutputStream fos = getFileOutputStream(FILENAME, true); // byte stream to a file
         // We use APPEND mode so that new data is added to an existent file with all historical saved data
         BufferedOutputStream bos = new BufferedOutputStream(fos); // Optimize bytes to blocks writings

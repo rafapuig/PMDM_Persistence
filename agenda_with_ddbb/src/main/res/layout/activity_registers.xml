@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="es.rafapuig.persistence.agenda.withddbb.RegistersActivity">
+
+        <androidx.gridlayout.widget.GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="99"
+            android:background="#63807A7A"
+            app:columnCount="2"
+            app:rowCount="4">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#4DFFEB3B"
+                android:gravity="center"
+                android:text="Full name:"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="6" />
+
+            <TextView
+                android:id="@+id/fullNameRegisterTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#528BC34A"
+                android:gravity="center"
+                android:textSize="20dp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="6" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#4DFFEB3B"
+                android:gravity="center"
+                android:text="Age:"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="6" />
+
+            <TextView
+                android:id="@+id/ageRegisterTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#528BC34A"
+                android:gravity="center"
+                android:textSize="20dp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="6" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#4DFFEB3B"
+                android:gravity="center"
+                android:text="Is Working:"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="6" />
+
+            <TextView
+                android:id="@+id/isWorkingRegisterTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#528BC34A"
+                android:gravity="center"
+                android:textSize="20dp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="6" />
+
+            <ImageButton
+                android:id="@+id/previousButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00FFFFFF"
+                android:onClick="onPreviousButtonClickCallback"
+                app:layout_columnWeight="1"
+                app:layout_gravity="center"
+                app:srcCompat="@drawable/flecha_atras" />
+
+            <ImageButton
+                android:id="@+id/nextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00FFFFFF"
+                android:onClick="onNextButtonClickCallback"
+                app:layout_columnWeight="1"
+                app:layout_gravity="center"
+                app:srcCompat="@drawable/flecha_adelante" />
+
+        </androidx.gridlayout.widget.GridLayout>
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#3F51B5"
+            android:onClick="onBackButtonClickCallback"
+            app:srcCompat="@drawable/volver" />
+
+    </LinearLayout>
+
