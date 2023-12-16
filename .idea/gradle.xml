@@ -4,20 +4,20 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="testRunner" value="GRADLE" />
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleJvm" value="jbr-17" />
+        <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/agenda_with_ddbb" />
             <option value="$PROJECT_DIR$/agenda_with_files" />
+            <option value="$PROJECT_DIR$/http-connection" />
             <option value="$PROJECT_DIR$/preferences_example" />
             <option value="$PROJECT_DIR$/store_config" />
             <option value="$PROJECT_DIR$/text_editor" />
           </set>
         </option>
+        <option name="resolveExternalAnnotations" value="false" />
       </GradleProjectSettings>
     </option>
   </component>
