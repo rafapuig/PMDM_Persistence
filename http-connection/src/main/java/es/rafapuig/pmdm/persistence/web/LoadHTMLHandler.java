@@ -57,11 +57,8 @@ public class LoadHTMLHandler extends Handler {
     }
 
     public void sendErrorMessage(String text) {
-        Message msg = this.obtainMessage(LoadHTMLHandler.ERROR);
-        Bundle bundle = new Bundle();
-        bundle.putString(ERROR_TEXT, text);
-        msg.setData(bundle);
-        msg.sendToTarget();
+        //TODO: send a message to handle an error
+
     }
 
 }

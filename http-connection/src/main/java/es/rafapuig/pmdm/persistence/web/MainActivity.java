@@ -74,58 +74,6 @@ public class MainActivity extends AppCompatActivity {
         return url;
     }
 
-    //WeakReference<MainActivity> activityWeakReference = new WeakReference<>(this);
-
-    /*class LoadHTMLHandler extends Handler {
-
-        private static final int HTML_READY = 0;
-        private static final int ERROR = -1;
-
-        private static final String HTML = "LoadHTMLHandler.HTML";
-        private static final String ERROR_TEXT = "LoadHTMLHandler.ERROR_TEXT";
-
-        WeakReference<MainActivity> activityWeakReference;
-
-        public LoadHTMLHandler(WeakReference<MainActivity> activity) {
-            super(Looper.getMainLooper());
-            this.activityWeakReference = activity;
-        }
-
-        @Override
-        public void handleMessage(@NonNull Message msg) {
-
-            Bundle bundle = msg.getData();
-
-            switch (msg.what) {
-                case HTML_READY:
-                    String html = bundle.getString(HTML);
-                    activityWeakReference.get().updateHTMLTextView(html);
-                    break;
-
-                case ERROR:
-                    String errorText = bundle.getString(ERROR_TEXT);
-                    activityWeakReference.get().showToastMessage(errorText);
-                    break;
-
-            }
-        }
-
-        public void sendHTMLReadyMessage(String html) {
-            Message msg = this.obtainMessage(LoadHTMLHandler.HTML_READY);
-            Bundle bundle = new Bundle();
-            bundle.putString(HTML, html);
-            msg.setData(bundle);
-            this.sendMessage(msg);
-        }
-
-        public void sendErrorMessage(String text) {
-            Message msg = this.obtainMessage(LoadHTMLHandler.ERROR);
-            Bundle bundle = new Bundle();
-            bundle.putString(ERROR_TEXT, text);
-            msg.setData(bundle);
-            msg.sendToTarget();
-        }
-    }*/
 
     // The handler to we will send messages from the Thread performing
     // the task of loading HTML from Internet
@@ -138,43 +86,33 @@ public class MainActivity extends AppCompatActivity {
     void tryLoadHTML(String specURL) throws IOException {
 
         //TODO: Create an URL instance from the specURL
-        URL url = new URL(specURL);
+
 
         //TODO: Get the connection object
-        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+
 
         //TODO: Configure connection object with GET method
-        connection.setRequestMethod("GET");
-        connection.setConnectTimeout(5 * 1000);
 
         //TODO: check if response code is HTTP_OK
-        if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+        if (...) {
 
             //TODO: Prepare input streams from the HTTP connection
-            InputStream is = connection.getInputStream();
-            InputStreamReader isr = new InputStreamReader(is);
-            BufferedReader br = new BufferedReader(isr);
+
 
             //TODO: Read the lines of html code received
-            StringJoiner stringJoiner = new StringJoiner("\n");
 
-            String line;
-            while ((line = br.readLine()) != null) {
-                stringJoiner.add(line);
-            }
+
 
             //TODO: Close the streams
-            br.close();
-            isr.close();
-            is.close();
 
-            String html = stringJoiner.toString();
+
+            String html = ...
 
             //We cannot call the method updateHTMLTextView(String html)
             //if this code is been executed in other thread
             //Only the main Thread can "touch" the UI views
             //So, we send a message to the handler, passing the html String
-            Log.i("RAFA","tryLoadHTML: " + Thread.currentThread().getName());
+
             loadHTMLHandler.sendHTMLReadyMessage(html);
 
         } else {
@@ -185,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //TODO: Close the connection
-        connection.disconnect();
+
     }
 
 
