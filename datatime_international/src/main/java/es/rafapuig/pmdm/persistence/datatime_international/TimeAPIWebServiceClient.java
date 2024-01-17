@@ -48,18 +48,18 @@ public class TimeAPIWebServiceClient {
 
         try {
             //TODO: Open connection
-            connection = (HttpURLConnection) SERVICE_URL.openConnection();
+
 
             //TODO: Set request method POST
-            connection.setRequestMethod("POST");
+
 
             //TODO: We indicate that what we are going to send and receive in Json format.
-            connection.setRequestProperty("Content-Type", "application/json");
-            connection.setRequestProperty("Accept", "application/json");
+
 
             sendPost(connection, dataToPost);
 
-            if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+            //TODO: Check if server response code is OK
+            if () {
                 return readResponse(connection);
             }
 
@@ -75,12 +75,10 @@ public class TimeAPIWebServiceClient {
 
     private static void sendPost(HttpURLConnection connection, JSONObject dataToPost) {
         // TODO: Prepare output streams to the network.
-        try(OutputStream output = connection.getOutputStream();
-            PrintWriter writer = new PrintWriter(output)) {
+        try() {
 
             // TODO: We send the json with the Post data.
-            writer.print(dataToPost.toString());
-            writer.flush();
+
 
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -91,36 +89,25 @@ public class TimeAPIWebServiceClient {
 
     private JSONObject generateJSONtoPost() throws JSONException {
         // TODO: build the json (put the data to be sent: dateTime and codeLanguage), use formatter!!!
-        JSONObject json = new JSONObject();
-        json.put("dateTime", dateTime.format(dateTimeFormatter));
-        json.put("languageCode", languageCode);
-        return json;
+
     }
 
     @NonNull
     private static String readResponse(HttpURLConnection connection) throws IOException {
         // TODO: Preparing incoming flows from the network
-        try (InputStream inputStream = connection.getInputStream();
-             InputStreamReader isr = new InputStreamReader(inputStream);
-             BufferedReader br = new BufferedReader(isr)) {
+        try () {
 
             //TODO: Read the response content
-            StringJoiner stringJoiner = new StringJoiner(System.lineSeparator());
 
-            String line;
-            while ((line = br.readLine()) != null) {
-                stringJoiner.add(line);
-            }
 
-            //TODO: return the content
-            return stringJoiner.toString();
+            //TODO: return the response content
+
         }
     }
 
     private static JSONObject parse(String jsonResponseText) throws JSONException {
         //TODO: Create the JSON object with the HTTP response
-        JSONObject json = new JSONObject(jsonResponseText);
-        return json;
+
     }
 
     private void callService() {
@@ -148,11 +135,7 @@ public class TimeAPIWebServiceClient {
 
     public String getFriendlyDateTime() {
         // TODO: Get the field with the friendly date from the json object
-        try {
-            return dataReceived.get("friendlyDateTime").toString();
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
+
     }
 
 }
