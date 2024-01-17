@@ -59,6 +59,7 @@ public class TimeAPIWebServiceClient {
 
             sendPost(connection, dataToPost);
 
+            //TODO: Check if server response code is OK
             if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
                 return readResponse(connection);
             }
