@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Data Time International</string>
+    <string name="country">COUNTRY</string>
+    <string name="chosen_date">CHOSEN DATE</string>
+    <string name="friendly_date">FRIENDLY DATE</string>
+    <string name="get_ncurrent_ndate">get\ncurrent\ndate</string>
+    <string name="set_na_ndate">set\na\ndate</string>
+    <string name="set_na_ntime">set\na\ntime</string>
+    <string name="get_friendly_date">get friendly date</string>
+    <string name="http_response">HTTP RESPONSE</string>
+</resources>
